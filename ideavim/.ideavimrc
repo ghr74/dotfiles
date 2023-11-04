@@ -1,0 +1,102 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=8
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set visualbell
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+" Surround with ({[" plugin
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'preservim/nerdtree'
+Plug 'kana/vim-textobj-entire'
+
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+
+set surround
+
+set quickscope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+"" --- Remap Keys
+noremap <SPACE> <Nop>
+let mapleader = " "
+
+noremap <C-c> <Esc>
+
+" --- System Copypasta
+nnoremap <leader>y \"*y
+vnoremap <leader>y \"*y
+nnoremap <leader>p \"*p
+vnoremap <leader>p \"*p
+nnoremap <leader>Y \"*Y
+
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" replace word under the cursor (broken in IdeaVim maybe)
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+
+" move line up / down
+"vnoremap J :m '>+1<CR>gv=gv
+"vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :action MoveLineDown<CR>
+vnoremap K :action MoveLineUp<CR>
+
+" dont move cursor when joining lines, maybe use IntelliJ-Join?
+nnoremap J mzJ`z
+
+" keep line focused when searching
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+
+nnoremap <C-f> :action GotoFile<CR>
+
+nnoremap <leader>bd :action CloseEditor<CR>
+nnoremap <leader>h :action PreviousTab<CR>
+nnoremap <leader>l :action NextTab<CR>
+nnoremap <leader>df :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>o :action ReSharperGotoImplementation<CR>
+
+nnoremap <leader>a :action HarpoonerAddFile<CR>
+nnoremap <C-h> :action HarpoonerOpenFile0<CR>
+nnoremap <C-j> :action HarpoonerOpenFile1<CR>
+nnoremap <C-k> :action HarpoonerOpenFile2<CR>
+nnoremap <C-l> :action HarpoonerOpenFile3<CR>
+nnoremap <C-n> :action HarpoonerQuickMenu<CR>
+
+:nmap <c-cr> a<cr><Esc>
+
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
