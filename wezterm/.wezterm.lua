@@ -16,6 +16,7 @@ end
 config.color_scheme = "Monokai Pro (Gogh)"
 -- config.font = wezterm.font("CaskaydiaCove NF")
 config.font = wezterm.font("Fira Code")
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- Background config
 -- config.window_background_opacity = 0
