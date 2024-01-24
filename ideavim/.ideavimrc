@@ -83,7 +83,8 @@ nmap <leader>bd <Action>(CloseEditor)
 nmap <leader>h <Action>(PreviousTab)
 nmap <leader>l <Action>(NextTab)
 nmap <leader>df <Action>(ToggleDistractionFreeMode)
-nmap <leader>o <Action>(ReSharperGotoImplementation)
+nmap ss :split<CR>
+nmap sv :vsplit<CR>
 
 map <leader>df <Action>(ToggleDistractionFreeMode)
 nmap <leader>a <Action>(HarpoonerAddFile)
@@ -94,7 +95,9 @@ nmap <C-l> <Action>(HarpoonerOpenFile3)
 nmap <C-n> <Action>(HarpoonerQuickMenu)
 
 map gh <Action>(ShowErrorDescription)
-map gj <Action>(QuickJavaDoc)
+nmap gi <Action>(GotoImplementation)
+nmap gd <Action>(GotoDefinition)
+nmap mo <Action>(MoveEditorToOppositeTabGroup)
 
 :nmap <c-cr> a<cr><Esc>
 
