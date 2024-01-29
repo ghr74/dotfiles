@@ -101,6 +101,9 @@ nmap mo <Action>(MoveEditorToOppositeTabGroup)
 
 :nmap <c-cr> a<cr><Esc>
 
+nmap <leader>in A///<inheritdoc /><Esc>
+nmap <leader>io O///<inheritdoc /><Esc>j
+
 "" Map \r to the Reformat Code action
 "map \r <Action>(ReformatCode)
 
